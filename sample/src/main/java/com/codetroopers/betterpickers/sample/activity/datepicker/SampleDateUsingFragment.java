@@ -1,8 +1,9 @@
 package com.codetroopers.betterpickers.sample.activity.datepicker;
 
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
+
 
 import com.codetroopers.betterpickers.sample.R;
 import com.codetroopers.betterpickers.sample.activity.BaseSampleActivity;
@@ -19,7 +20,7 @@ public class SampleDateUsingFragment extends BaseSampleActivity {
         setContentView(R.layout.frame_layout);
 
         Fragment fragment = new SampleDateFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
 
         transaction.replace(R.id.frame, fragment);
 

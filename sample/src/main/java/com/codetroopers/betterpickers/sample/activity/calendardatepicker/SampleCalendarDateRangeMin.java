@@ -1,7 +1,7 @@
 package com.codetroopers.betterpickers.sample.activity.calendardatepicker;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -39,7 +39,7 @@ public class SampleCalendarDateRangeMin extends BaseSampleActivity
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentManager fm = getSupportFragmentManager();
+                FragmentManager fm = getFragmentManager();
                 DateTime now = DateTime.now();
                 CalendarDatePickerDialogFragment calendarDatePickerDialogFragment = CalendarDatePickerDialogFragment
                         .newInstance(SampleCalendarDateRangeMin.this, now.getYear(), now.getMonthOfYear() - 1,
@@ -61,7 +61,7 @@ public class SampleCalendarDateRangeMin extends BaseSampleActivity
     public void onResume() {
         // Example of reattaching to the fragment
         super.onResume();
-        CalendarDatePickerDialogFragment calendarDatePickerDialogFragment = (CalendarDatePickerDialogFragment) getSupportFragmentManager()
+        CalendarDatePickerDialogFragment calendarDatePickerDialogFragment = (CalendarDatePickerDialogFragment) getFragmentManager()
                 .findFragmentByTag(FRAG_TAG_DATE_PICKER);
         if (calendarDatePickerDialogFragment != null) {
             calendarDatePickerDialogFragment.setOnDateSetListener(this);
