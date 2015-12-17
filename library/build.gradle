@@ -1,6 +1,10 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 apply from: 'https://raw.githubusercontent.com/shamanland/gradle-mvn-push/master/gradle-mvn-push.gradle' //contains fix for javadoc issues
 
+repositories {
+    mavenLocal()
+}
 
 android {
 
@@ -31,6 +35,17 @@ android {
 
     lintOptions {
         abortOnError false
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            artifact bundleRelease
+            groupId project.GROUP
+            artifactId 'library'
+            version project.VERSION_NAME
+        }
     }
 }
 
